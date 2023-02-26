@@ -8,11 +8,9 @@ export const movieSchema = z.object({
   price: z.number().int().positive(),
 });
 
-// export const movieCreationRequestSchema = movieSchema.omit({id: true})
 export const movieCreateSchema = movieSchema.omit({
   id: true,
 });
-// export const movieCreationResultSchema = movieSchema.omit({ password: true });
-export const movieGetAllSchema = z.array(movieSchema)
+export const movieGetAllSchema = z.array(movieSchema);
 
-export const movieUpdateSchema = movieCreateSchema.partial()
+export const movieUpdateSchema = movieCreateSchema.partial();

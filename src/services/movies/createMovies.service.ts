@@ -12,16 +12,6 @@ export const createMoviesService = async (
 ): Promise<tMovieCreationResult> => {
   const movieRepo = AppDataSource.getRepository(Movie);
 
-  // const movieCheck = await movieRepo.findOne({
-  //   where: {
-  //     name: payload.name,
-  //   },
-  // });
-
-  // if (movieCheck) {
-  //   throw new AppError("Movie already exists.", 409);
-  // }
-
   const movie = movieRepo.create(payload);
 
   await movieRepo.save(movie);

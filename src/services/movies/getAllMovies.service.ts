@@ -45,9 +45,7 @@ export const getAllMoviesService = async (
     },
   });
 
-  // const movies = movieGetAllSchema.parse(findMovies);
   const baseUrl = `http://localhost:3000/movies`;
-  // return movies;
   const lastPage = Math.ceil(movies[1] / perPage);
   const prevPage =
     page <= 1

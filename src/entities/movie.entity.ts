@@ -18,4 +18,3 @@ export class Movie {
   price: number;
 }
 
-// export { Movies };
