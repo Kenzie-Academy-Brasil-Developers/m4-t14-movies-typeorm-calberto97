@@ -1,10 +1,7 @@
-import { fixDescriptionColumn1677247350244 } from './migrations/1677247350244-fixDescriptionColumn';
 import "dotenv/config";
 import path from "path";
 import "reflect-metadata";
 import { DataSource, DataSourceOptions } from "typeorm";
-import { Movie } from "./entities";
-import { firstMigration1677184800364 } from "./migrations/1677184800364-firstMigration";
 
 const dataSourceConfig = (): DataSourceOptions => {
   const entitiesPath: string = path.join(
@@ -27,7 +24,7 @@ const dataSourceConfig = (): DataSourceOptions => {
       type: "sqlite",
       database: ":memory:",
       synchronize: true,
-      entities: [Movie],
+      entities: [entitiesPath],
     };
   }
 
@@ -36,8 +33,8 @@ const dataSourceConfig = (): DataSourceOptions => {
     url: dbUrl,
     synchronize: false,
     logging: true,
-    entities: [Movie],
-    migrations: [fixDescriptionColumn1677247350244],
+    entities: [entitiesPath],
+    migrations: [migrationPath],
   };
 };
 
